@@ -142,11 +142,17 @@ public class Runigram {
 		//// Replace the following statement with your code
 		int ogWidth = image[0].length;
 		int ogHeight = image.length;
+
 		Color[][] scaledImage = new Color[height][width];
+
 		for (int i = 0; i < height; i++) {
 			for (int j = 0; j < width; j++) {
 				int ogX = (int)(i * ((double) ogHeight / height));
 				int ogY = (int)(j * ((double) ogWidth / width));
+
+				ogX = Math.min(ogWidth, ogX);
+				ogY = Math.min(ogHeight - 1, ogY);
+				
 				scaledImage[i][j]=image[ogY][ogX];
 			}	
 		}
