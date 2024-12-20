@@ -126,9 +126,8 @@ public class Runigram {
 		//// Replace the following statement with your code
 		int numRows = image.length;
 		int numCols = image[0].length;
-
-		Color[][] grayScaledImage = new Color[numCols][numRows];
-
+		
+		Color[][] grayScaledImage = new Color[numRows][numCols];
 		for (int i = 0; i < numRows; i++) {
 			for (int j = 0; j < numCols; j++) {
 				grayScaledImage[i][j] = luminance(image[i][j]);
