@@ -126,7 +126,7 @@ public class Runigram {
 		//// Replace the following statement with your code
 		int numRows = image.length;
 		int numCols = image[0].length;
-		
+
 		Color[][] grayScaledImage = new Color[numRows][numCols];
 		for (int i = 0; i < numRows; i++) {
 			for (int j = 0; j < numCols; j++) {
@@ -142,23 +142,15 @@ public class Runigram {
 	 */
 	public static Color[][] scaled(Color[][] image, int width, int height) {
 		//// Replace the following statement with your code
-		int ogWidth = image[0].length;
-		int ogHeight = image.length;
-
-		Color[][] scaledImage = new Color[height][width];
-
-		for (int i = 0; i < height; i++) {
-			for (int j = 0; j < width; j++) {
-				int ogX = (int)(i * ((double) ogHeight / height));
-				int ogY = (int)(j * ((double) ogWidth / width));
-
-				ogX = Math.min(ogWidth, ogX);
-				ogY = Math.min(ogHeight - 1, ogY);
-
-				scaledImage[i][j]=image[ogY][ogX];
-			}	
+		Color[][] resized = new Color[height][width];
+		for (int i = 0; i < resized.length; i++) {
+			for (int j = 0; j < resized[i].length; j++) {
+				int iImage = i * image.length / height;
+				int jImage = j * image[0].length / width;
+				resized[i][j] = image[iImage][jImage];
+			}
 		}
-		return null;
+		return resized;
 	}
 	
 	/**
