@@ -124,19 +124,14 @@ public class Runigram {
 	 */
 	public static Color[][] grayScaled(Color[][] image) {
 		//// Replace the following statement with your code
-		int numRows = image.length;
-		int numcols = image[0].length;
-
-		Color[][] grayImage = new Color[numRows][numcols];
-		
+		int numRows = image.length, numCols = image[0].length;
+		Color[][] grayScaledImage = new Color[numRows][numCols];
 		for (int i = 0; i < numRows; i++) {
-			for (int j = 0; j < numcols; j ++) {
-				Color grayPixel = luminance(image[i][j]);
-
-				grayImage[i][j] = grayPixel;
+			for (int j = 0; j < numCols; j++) {
+				grayScaledImage[i][j] = luminance(image[i][j]);
 			}
 		}
-		return null;
+		return grayScaledImage;
 	}	
 	
 	/**
